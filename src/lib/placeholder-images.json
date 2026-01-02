@@ -1,0 +1,166 @@
+{
+  "placeholderImages": [
+    {
+      "id": "user1",
+      "description": "User profile picture",
+      "imageUrl": "https://images.unsplash.com/photo-1580489944761-15a19d654956?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxwcm9maWxlJTIwd29tYW58ZW58MHx8fHwxNzY0OTQwNTgwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile woman"
+    },
+    {
+      "id": "user2",
+      "description": "User profile picture",
+      "imageUrl": "https://images.unsplash.com/photo-1555431471-91280869572b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxwcm9maWxlJTIwcGVyc29ufGVufDB8fHx8MTc2NDk2NzE3MXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile person"
+    },
+    {
+      "id": "user3",
+      "description": "User profile picture",
+      "imageUrl": "https://images.unsplash.com/photo-1655249481446-25d575f1c054?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxwcm9maWxlJTIwd29tYW4lMjBwcm9mZXNzaW9uYWx8ZW58MHx8fHwxNzY1MDUzODU4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile woman professional"
+    },
+    {
+      "id": "user4",
+      "description": "User profile picture",
+      "imageUrl": "https://images.unsplash.com/photo-1600180758890-6b94519a8ba6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxwcm9maWxlJTIwcGVyc29uJTIwcHJvZmVzc2lvbmFsfGVufDB8fHx8MTc2NTA1Mzg1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile person professional"
+    },
+    {
+      "id": "user5",
+      "description": "User profile picture",
+      "imageUrl": "https://images.unsplash.com/photo-1710778044102-56a3a6b69a1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cHJvZmlsZSUyMHdvbWFuJTIwZW50cmVwcmVuZXVyfGVufDB8fHx8MTc2NTA1Mzg1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "profile woman entrepreneur"
+    },
+    {
+      "id": "event1",
+      "description": "Event banner",
+      "imageUrl": "https://images.unsplash.com/photo-1638006437504-8dd487434d89?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHx2aXJ0dWFsJTIwc3VtbWl0fGVufDB8fHx8MTc2NTA1Mzg1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "virtual summit"
+    },
+    {
+      "id": "event2",
+      "description": "Event banner",
+      "imageUrl": "https://images.unsplash.com/photo-1576085898323-218337e3e43c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxuZXR3b3JraW5nJTIwbWVldHVwfGVufDB8fHx8MTc2NTA1Mzg1OXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "networking meetup"
+    },
+    {
+      "id": "event3",
+      "description": "Event banner",
+      "imageUrl": "https://images.unsplash.com/photo-1516611350064-481224e0cb0d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHx3b3Jrc2hvcCUyMGJyYW5kaW5nfGVufDB8fHx8MTc2NTA1Mzg1OHww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "workshop branding"
+    },
+    {
+      "id": "coverPhoto",
+      "description": "Profile cover photo",
+      "imageUrl": "https://images.unsplash.com/photo-1595411425732-e69c1abe2763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHBhdHRlcm58ZW58MHx8fHwxNzY0OTg2NzQxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "abstract pattern"
+    },
+    {
+      "id": "product1",
+      "description": "Handwoven silk scarf",
+      "imageUrl": "https://images.unsplash.com/photo-1562725917-552d083a2339?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "handwoven silk scarf"
+    },
+    {
+      "id": "product1-alt1",
+      "description": "Handwoven silk scarf - alternate view 1",
+      "imageUrl": "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "silk fabric texture"
+    },
+    {
+      "id": "product1-alt2",
+      "description": "Handwoven silk scarf - alternate view 2",
+      "imageUrl": "https://images.unsplash.com/photo-1617038221808-508516b22591?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "folded silk scarf"
+    },
+    {
+      "id": "product2",
+      "description": "Organic spice blend",
+      "imageUrl": "https://images.unsplash.com/photo-1599540879682-023e3579549f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "colorful spices"
+    },
+    {
+      "id": "product2-alt1",
+      "description": "Organic spice blend - alternate view 1",
+      "imageUrl": "https://images.unsplash.com/photo-1476580993954-071c3f3b6d92?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "spices in bowls"
+    },
+    {
+      "id": "product2-alt2",
+      "description": "Organic spice blend - alternate view 2",
+      "imageUrl": "https://images.unsplash.com/photo-1599540852335-96b059e359d9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "spices background"
+    },
+    {
+      "id": "product3",
+      "description": "Ceramic coffee mug",
+      "imageUrl": "https://images.unsplash.com/photo-1617822424747-074c01511135?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "handmade ceramic mug"
+    },
+    {
+      "id": "product3-alt1",
+      "description": "Ceramic coffee mug - alternate view 1",
+      "imageUrl": "https://images.unsplash.com/photo-1555562813-d49d7b5155b2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "pottery making"
+    },
+    {
+      "id": "product3-alt2",
+      "description": "Ceramic coffee mug - alternate view 2",
+      "imageUrl": "https://images.unsplash.com/photo-1605338332152-8da513a93e3d?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "stack of mugs"
+    },
+    {
+      "id": "product4",
+      "description": "Sun-dried tomato pesto",
+      "imageUrl": "https://images.unsplash.com/photo-1606856525948-4a6050ac8685?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "tomato pesto jar"
+    },
+    {
+      "id": "product5",
+      "description": "Block-printed cotton tote bag",
+      "imageUrl": "https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "imageHint": "tote bag"
+    },
+    {
+      "id": "product6",
+      "description": "Terracotta jewelry set",
+      "imageUrl": "https://images.unsplash.com/photo-1593028342402-e2203134c62f?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "imageHint": "handmade terracotta jewelry"
+    },
+    {
+      "id": "training1",
+      "description": "Training program cover image",
+      "imageUrl": "https://images.unsplash.com/photo-1542744095-291d1f67b221?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwbWFya2V0aW5nJTIwd29ya3Nob3B8ZW58MHx8fHwxNzY1MTI1NjQ2fDA&ixlibrb-4.1.0&q=80&w=1080",
+      "imageHint": "digital marketing workshop"
+    },
+    {
+      "id": "training2",
+      "description": "Training program cover image",
+      "imageUrl": "https://images.unsplash.com/photo-1554224155-1696413565d3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxidXNpbmVzcyUyMGZpbmFuY2VzfGVufDB8fHx8MTc2NTEyNTY0Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "business finance"
+    },
+    {
+      "id": "training3",
+      "description": "Training program cover image",
+      "imageUrl": "https://images.unsplash.com/photo-1664574654578-d5a81d702d66?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxlY29tbWVyY2UlMjBzdHJhdGVneXxlbnwwfHx8fDE3NjUzMTQzNTV8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ecommerce strategy"
+    },
+    {
+      "id": "postImage1",
+      "description": "Post image about inclusive design",
+      "imageUrl": "https://images.unsplash.com/photo-1522071820081-009f0129c710?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxjb2xsYWJvcmF0aXZlJTIwdGVhbSUyMG1lZXRpbmd8ZW58MHx8fHwxNzY1NDM0MzMwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "collaborative team meeting"
+    },
+    {
+      "id": "postImage2",
+      "description": "Post image about financial literacy",
+      "imageUrl": "https://images.unsplash.com/photo-1553729459-efe14ef6055d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+      "imageHint": "financial literacy"
+    },
+    {
+      "id": "postImage3",
+      "description": "Post image showing a person working on a laptop",
+      "imageUrl": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHx3b3JraW5nJTIwb24lMjBsYXB0b3B8ZW58MHx8fHwxNzY1NDg1NDcxfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "working laptop"
+    }
+  ]
+}

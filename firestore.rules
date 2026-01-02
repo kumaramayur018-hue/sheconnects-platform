@@ -1,0 +1,122 @@
+
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isAdmin() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.roles.hasAny(['admin']);
+    }
+    
+    function isProductOwner(productId) {
+      return get(/databases/$(database)/documents/products/$(productId)).data.sellerId == request.auth.uid;
+    }
+
+    // User can manage their own profile. Anyone can read public profiles.
+    match /users/{userId} {
+      allow read: if true;
+      allow write: if isOwner(userId);
+    }
+
+    // Products can be read by anyone. Only owner can create/update. Admins can delete.
+    match /products/{productId} {
+      allow read: if true;
+      allow create: if isSignedIn() && request.resource.data.sellerId == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.sellerId == request.auth.uid;
+      allow delete: if isAdmin();
+      
+      // Reviews can be written by any signed-in user. Owner can delete.
+      match /reviews/{reviewId} {
+        allow read: if true;
+        allow create: if isSignedIn();
+        allow update, delete: if isOwner(resource.data.reviewerId);
+      }
+    }
+    
+    // Users can manage their own orders.
+    match /orders/{orderId} {
+      allow read, write: if isOwner(resource.data.buyerId);
+    }
+
+    // Training programs are public to read. Only admins can manage them.
+    match /training_programs/{programId} {
+      allow read: if true;
+      allow write: if isAdmin();
+
+      // Sessions are public to read. Only admins can manage them.
+      match /sessions/{sessionId} {
+        allow read: if true;
+        allow write: if isAdmin();
+      }
+    }
+
+    // Users can read and write their own progress.
+    match /user_progress/{userId}/{programs}/{programId} {
+       allow read, write: if isOwner(userId);
+    }
+
+    // Community posts are public to read. Signed-in users can create. Owners can edit/delete.
+    match /community_posts/{postId} {
+      allow read: if true;
+      allow create: if isSignedIn() && request.resource.data.authorId == request.auth.uid;
+      allow update, delete: if isSignedIn() && resource.data.authorId == request.auth.uid;
+
+      // Comments can be read by anyone. Signed-in users can create. Owners can edit/delete.
+      match /comments/{commentId} {
+        allow read: if true;
+        allow create: if isSignedIn() && request.resource.data.authorId == request.auth.uid;
+        allow update, delete: if isSignedIn() && resource.data.authorId == request.auth.uid;
+      }
+    }
+    
+    // Conversations and messages can only be accessed by participants.
+    match /conversations/{conversationId} {
+      allow get: if isSignedIn() && request.auth.uid in resource.data.participants;
+      
+      match /messages/{messageId} {
+        allow read, create: if isSignedIn() && request.auth.uid in get(/databases/$(database)/documents/conversations/$(conversationId)).data.participants;
+      }
+    }
+
+    // Funding opportunities are public. Only admins can manage them.
+    match /funding_opportunities/{opportunityId} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+    
+    // Users can manage their own business questions.
+    match /business_questions/{questionId} {
+      allow read, write: if isOwner(resource.data.userId);
+    }
+  }
+}
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Files can be read by anyone.
+    match /{allPaths=**} {
+      allow read: if true;
+    }
+
+    // Only authenticated users can upload product images to their own directory.
+    match /products/{userId}/{productId}/{allPaths=**} {
+      allow write: if isOwner(userId) && request.resource.size < 5 * 1024 * 1024
+                   && request.resource.contentType.matches('image/(jpeg|png|webp)');
+    }
+
+    // You can add more specific rules for other paths, like documents or training resources.
+    // For example:
+    // match /documents/{userId}/{docId} {
+    //   allow write: if isOwner(userId);
+    // }
+  }
+}

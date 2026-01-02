@@ -1,0 +1,234 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "type": "object",
+      "description": "Represents a user's core identity and role within the SheConnects platform.",
+      "properties": {
+        "id": { "type": "string", "description": "Unique identifier for the user profile, same as Firebase Auth UID." },
+        "email": { "type": "string", "description": "User's email address.", "format": "email" },
+        "name": { "type": "string", "description": "User's full name." },
+        "photoUrl": { "type": "string", "description": "URL of the user's profile picture.", "format": "uri" },
+        "location": { "type": "object", "properties": {
+          "city": { "type": "string" },
+          "state": { "type": "string" },
+          "country": { "type": "string" }
+        }},
+        "languages": { "type": "array", "items": { "type": "string" } },
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "industry": { "type": "string" },
+        "bio": { "type": "string" },
+        "experienceLevel": { "type": "string", "enum": ["beginner", "growing", "established"] },
+        "socialLinks": { "type": "object", "properties": {
+          "linkedin": { "type": "string" },
+          "twitter": { "type": "string" },
+          "website": { "type": "string" }
+        }},
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "roles": { "type": "array", "description": "Roles assigned to the user.", "items": { "type": "string", "enum": ["entrepreneur", "mentor", "investor", "admin"] } },
+        "completedPrograms": { "type": "array", "items": { "type": "string" }, "description": "Array of program IDs completed by the user." },
+        "connections": { "type": "array", "items": { "type": "string" }, "description": "Array of user IDs the user is connected with." },
+        "badges": { "type": "array", "items": { "type": "string" }, "description": "Gamification badges earned by the user." },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "email", "name", "roles", "createdAt"]
+    },
+    "Product": {
+      "title": "Product",
+      "type": "object",
+      "description": "Represents a product or service listed by an entrepreneur.",
+      "properties": {
+        "id": { "type": "string" },
+        "sellerId": { "type": "string" },
+        "name": { "type": "string" },
+        "category": { "type": "string" },
+        "price": { "type": "number" },
+        "quantity": { "type": "number" },
+        "images": { "type": "array", "items": { "type": "string", "format": "uri" } },
+        "coverImage": { "type": "string", "format": "uri" },
+        "shortDescription": { "type": "string" },
+        "longDescription": { "type": "string" },
+        "shippingOptions": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "location": { "type": "string" },
+        "rating": { "type": "number" },
+        "verificationStatus": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "attributes": { "type": "array", "items": { "type": "string", "enum": ["handmade", "eco-friendly", "rural_origin"] }}
+      },
+      "required": ["id", "sellerId", "name", "category", "price", "quantity", "images", "coverImage", "shortDescription"]
+    },
+    "ProductReview": {
+      "title": "ProductReview",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "productId": { "type": "string" },
+        "reviewerId": { "type": "string" },
+        "rating": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "productId", "reviewerId", "rating", "createdAt"]
+    },
+    "Order": {
+      "title": "Order",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "buyerId": { "type": "string" },
+        "items": { "type": "array", "items": { "type": "object", "properties": {
+          "productId": { "type": "string" },
+          "quantity": { "type": "number" },
+          "price": { "type": "number" }
+        }}},
+        "totalAmount": { "type": "number" },
+        "status": { "type": "string", "enum": ["pending", "paid", "shipped", "delivered", "cancelled"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "buyerId", "items", "totalAmount", "status", "createdAt"]
+    },
+    "TrainingProgram": {
+      "title": "TrainingProgram",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "level": { "type": "string", "enum": ["Beginner", "Intermediate", "Advanced"] },
+        "duration": { "type": "string" },
+        "startDate": { "type": "string", "format": "date" },
+        "endDate": { "type": "string", "format": "date" },
+        "language": { "type": "string" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "trainerInfo": { "type": "string" },
+        "coverImage": { "type": "string", "format": "uri" },
+        "category": {"type": "string"}
+      },
+      "required": ["id", "title", "description", "level", "language", "category"]
+    },
+    "TrainingSession": {
+      "title": "TrainingSession",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "speakerName": { "type": "string" },
+        "speakerBio": { "type": "string" },
+        "dateTime": { "type": "string", "format": "date-time" },
+        "durationMinutes": { "type": "number" },
+        "tags": { "type": "array", "items": { "type": "string" } },
+        "isLive": { "type": "boolean" },
+        "recordingUrl": { "type": "string", "format": "uri" },
+        "resourcesUrl": { "type": "string", "format": "uri" },
+        "status": { "type": "string", "enum": ["Upcoming", "Live", "Completed"] }
+      },
+      "required": ["id", "title", "dateTime", "status"]
+    },
+    "UserProgress": {
+      "title": "UserProgress",
+      "type": "object",
+      "description": "Tracks a user's progress within a training program.",
+      "properties": {
+        "userId": { "type": "string" },
+        "programId": { "type": "string" },
+        "completedSessions": { "type": "array", "items": { "type": "string" } },
+        "percentage": { "type": "number" }
+      },
+      "required": ["userId", "programId"]
+    },
+    "CommunityPost": {
+      "title": "CommunityPost",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "authorId": { "type": "string" },
+        "content": { "type": "string" },
+        "photoUrl": { "type": "string", "format": "uri" },
+        "likesCount": { "type": "number" },
+        "commentsCount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "authorId", "content", "createdAt"]
+    },
+    "PostComment": {
+        "title": "PostComment",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "authorId": { "type": "string" },
+            "content": { "type": "string" },
+            "createdAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "authorId", "content", "createdAt"]
+    },
+    "Conversation": {
+        "title": "Conversation",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "participants": { "type": "array", "items": { "type": "string" } },
+            "lastMessage": { "type": "string" },
+            "lastMessageAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "participants", "lastMessageAt"]
+    },
+    "Message": {
+        "title": "Message",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "senderId": { "type": "string" },
+            "text": { "type": "string" },
+            "createdAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "senderId", "text", "createdAt"]
+    },
+    "FundingOpportunity": {
+        "title": "FundingOpportunity",
+        "type": "object",
+        "properties": {
+            "id": { "type": "string" },
+            "title": { "type": "string" },
+            "description": { "type": "string" },
+            "eligibility": { "type": "string" },
+            "deadline": { "type": "string", "format": "date" },
+            "applicationLink": { "type": "string", "format": "uri" },
+            "tags": { "type": "array", "items": { "type": "string" } }
+        },
+        "required": ["id", "title", "description", "deadline", "applicationLink"]
+    },
+    "BusinessQuestion": {
+        "title": "BusinessQuestion",
+        "type": "object",
+        "description": "A question submitted by a user to the AI Business Assistant.",
+        "properties": {
+            "id": { "type": "string" },
+            "userId": { "type": "string" },
+            "question": { "type": "string" },
+            "answer": { "type": "string" },
+            "status": { "type": "string", "enum": ["pending", "answered"]},
+            "createdAt": { "type": "string", "format": "date-time" }
+        },
+        "required": ["id", "userId", "question", "status", "createdAt"]
+    }
+  },
+  "auth": { "providers": ["password", "google.com", "phone"] },
+  "firestore": {
+    "structure": [
+      { "path": "/users/{userId}", "definition": { "schema": { "$ref": "#/entities/UserProfile" } } },
+      { "path": "/products/{productId}", "definition": { "schema": { "$ref": "#/entities/Product" } } },
+      { "path": "/products/{productId}/reviews/{reviewId}", "definition": { "schema": { "$ref": "#/entities/ProductReview" } } },
+      { "path": "/orders/{orderId}", "definition": { "schema": { "$ref": "#/entities/Order" } } },
+      { "path": "/training_programs/{programId}", "definition": { "schema": { "$ref": "#/entities/TrainingProgram" } } },
+      { "path": "/training_programs/{programId}/sessions/{sessionId}", "definition": { "schema": { "$ref": "#/entities/TrainingSession" } } },
+      { "path": "/user_progress/{userId}/programs/{programId}", "definition": { "schema": { "$ref": "#/entities/UserProgress" } } },
+      { "path": "/community_posts/{postId}", "definition": { "schema": { "$ref": "#/entities/CommunityPost" } } },
+      { "path": "/community_posts/{postId}/comments/{commentId}", "definition": { "schema": { "$ref": "#/entities/PostComment" } } },
+      { "path": "/conversations/{conversationId}", "definition": { "schema": { "$ref": "#/entities/Conversation" } } },
+      { "path": "/conversations/{conversationId}/messages/{messageId}", "definition": { "schema": { "$ref": "#/entities/Message" } } },
+      { "path": "/funding_opportunities/{opportunityId}", "definition": { "schema": { "$ref": "#/entities/FundingOpportunity" } } },
+      { "path": "/business_questions/{questionId}", "definition": { "schema": { "$ref": "#/entities/BusinessQuestion" } } }
+    ]
+  }
+}
